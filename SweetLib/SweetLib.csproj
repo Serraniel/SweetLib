@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Exception\RegistryStorerException.cs" />
+    <Compile Include="Classes\Storer\IniFileStorer.cs" />
+    <Compile Include="Classes\Storer\IStorer.cs" />
+    <Compile Include="Classes\Storer\RegistryStorer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Logger\Memory\ArchivableConsoleLogMemory.cs" />
     <Compile Include="Utils\Logger\Memory\ILogMemory.cs" />
