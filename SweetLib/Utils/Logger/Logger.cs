@@ -12,7 +12,9 @@ namespace SweetLib.Utils.Logger
         Debug = 1 << 1,
         Info = 1 << 2,
         Warn = 1 << 3,
-        Error = 1 << 4
+        Error = 1 << 4,
+
+        All = Int32.MaxValue, 
     };
 
     public static class Logger

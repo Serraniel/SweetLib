@@ -4,7 +4,6 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using SweetLib.Utils.Logger.Message;
 
 namespace SweetLib.Utils.Logger.Memory
@@ -107,6 +106,9 @@ namespace SweetLib.Utils.Logger.Memory
 
             using (var tmpFileStream = new FileInfo(TempFile).OpenRead())
             {
+                if (!Directory.Exists(Path.GetDirectoryName(fullFileName)))
+                    Directory.CreateDirectory(Path.GetDirectoryName(fullFileName));
+
                 using (var compressedFileStream = File.Create(fullFileName))
                 {
                     using (var compressionsStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
@@ -130,7 +132,19 @@ namespace SweetLib.Utils.Logger.Memory
             ProcessQueue();
 
             if (AutoArchiveOnDispose)
-                Archive();
+            {
+                try
+                {
+                    Archive();
+                }
+                catch (FileNotFoundException)
+                {
+                    if (disposing)
+                        throw;
+                }
+            }
+
+            File.Delete(TempFile);
         }
     }
 }

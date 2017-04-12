@@ -12,7 +12,7 @@ namespace SweetLib.Utils.Logger.Message
 
         public static LogMessageFormatter FormatterInstance { get; set; }
 
-        public static string DefaultFormatString { get; set; } = $"[{CultureInfo.CurrentCulture.DateTimeFormat}] (LL) - V";
+        public static string DefaultFormatString { get; set; } = $"[{CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern} - {CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern}] (LL): V";
 
         public static LogMessageFormatter Instance
         {
