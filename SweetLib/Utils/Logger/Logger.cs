@@ -18,6 +18,7 @@ namespace SweetLib.Utils.Logger
     public static class Logger
     {
         public static LogLevel GlobalLogLevel { get; set; } = LogLevel.Info | LogLevel.Warn | LogLevel.Error;
+
         public static ILogMemory DefaultLogMemory = new ArchivableConsoleLogMemory();
 
         public static void Log(LogLevel logLevel, string message)

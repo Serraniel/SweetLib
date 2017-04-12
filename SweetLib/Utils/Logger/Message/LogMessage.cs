@@ -6,7 +6,9 @@ namespace SweetLib.Utils.Logger.Message
     public class LogMessage : IFormattable
     {
         public LogLevel LogLevel { get; }
+
         public string Message { get; }
+
         public DateTime LogDateTime { get; }
 
         public LogMessage(LogLevel logLevel, string message) : this(logLevel, message, DateTime.Now) { }
@@ -26,7 +28,7 @@ namespace SweetLib.Utils.Logger.Message
 
         public override string ToString()
         {
-            return ToString($"[{CultureInfo.CurrentCulture.DateTimeFormat}] (LL) - V", CultureInfo.CurrentCulture);
+            return ToString(LogMessageFormatter.DefaultFormatString, CultureInfo.CurrentCulture);
         }
 
         public string ToString(string format, IFormatProvider formatProvider)

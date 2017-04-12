@@ -13,11 +13,12 @@ namespace SweetLib.Utils.Logger.Memory
     {
         private string TempFile { get; } = Path.GetTempFileName();
 
-        private Timer QueueTimer;
+        private Timer QueueTimer { get; }
 
         private ConcurrentQueue<LogMessage> LogQueue { get; } = new ConcurrentQueue<LogMessage>();
 
         public string ArchiveFile { get; set; } = null;
+
         public bool AutoArchiveOnDispose { get; set; } = true;
 
         public ArchivableConsoleLogMemory() : this(null) { }

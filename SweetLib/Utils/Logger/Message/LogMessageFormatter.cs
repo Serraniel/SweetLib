@@ -1,12 +1,18 @@
 ﻿using System;
+using System.Globalization;
 
 namespace SweetLib.Utils.Logger.Message
 {
     public class LogMessageFormatter : ICustomFormatter
     {
+
         private LogMessageFormatter() { }
-        private static LogMessageFormatter FormatterInstance { get; set; }
+
         private static object Locker { get; } = new object();
+
+        public static LogMessageFormatter FormatterInstance { get; set; }
+
+        public static string DefaultFormatString { get; set; } = $"[{CultureInfo.CurrentCulture.DateTimeFormat}] (LL) - V";
 
         public static LogMessageFormatter Instance
         {
