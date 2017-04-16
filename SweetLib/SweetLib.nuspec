@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Serraniel</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://opensource.org/licenses/GPL-3.0</licenseUrl>
+    <projectUrl>https://github.com/Serraniel/SweetLib</projectUrl>
+    <iconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>First pre version just to try that nuget package thing :)</releaseNotes>
+    <copyright>Copyright © 2017 Serraniel</copyright>
+    <tags>Utility</tags>
+  </metadata>
+</package>

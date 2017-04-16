@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SweetLib")]
 [assembly: AssemblyDescription("Sweet collection of helpful utils in .Net")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Serraniel")]
 [assembly: AssemblyProduct("SweetLib")]
 [assembly: AssemblyCopyright("Copyright © 2017 by Serraniel")]
 [assembly: AssemblyTrademark("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.23.0")]
-[assembly: AssemblyFileVersion("0.1.23.0")]
+[assembly: AssemblyVersion("0.1.24.0")]
+[assembly: AssemblyFileVersion("0.1.24.0")]
