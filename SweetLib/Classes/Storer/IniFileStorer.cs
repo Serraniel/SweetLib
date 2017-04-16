@@ -3,16 +3,26 @@ using System.Text;
 
 namespace SweetLib.Classes.Storer
 {
+    /// <summary>
+    /// Implementation of an <see cref="IStorer"/> interface which stores the data inside an ini file.
+    /// </summary>
     public class IniFileStorer : IStorer
     {
+        /// <summary>
+        /// Ini file path.
+        /// </summary>
         public string FileName { get; }
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+        private static extern long WritePrivateProfileString(string section, string key, string value, string filePath);
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]
-        static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+        private static extern int GetPrivateProfileString(string section, string key, string defaultValue, StringBuilder value, int size, string filePath);
 
+        /// <summary>
+        /// Creates a new instance of <see cref="IniFileStorer"/> with a specified file name.
+        /// </summary>
+        /// <param name="fileName">The file name of the ini file.</param>
         public IniFileStorer(string fileName)
         {
             FileName = fileName;

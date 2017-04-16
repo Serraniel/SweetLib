@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SweetLib.Classes.Storer;
 using SweetLib.Utils.Logger;
+using SweetLib.Utils.Logger.Message;
 
 namespace SweetLib.Demo.Console
 {
@@ -21,6 +24,10 @@ namespace SweetLib.Demo.Console
             Logger.Error("Error :(");
 
             System.Console.ReadLine();
+
+            var f = Path.GetTempFileName();
+            var ini = new IniFileStorer(f);
+            System.Console.WriteLine(ini.ReadString("sec","key"));
         }
     }
 }

@@ -3,24 +3,45 @@ using SweetLib.Classes.Exception;
 
 namespace SweetLib.Classes.Storer
 {
+    /// <summary>
+    /// Implementation of an <see cref="IStorer"/> interface which stores the data inside the registry. 
+    /// </summary>
+    /// <remarks>
+    /// Sections will be interpreted as subkeys on registry level.
+    /// </remarks>
     public class RegistryStorer : IStorer
     {
-        public RegistryKey BaseRegistryKey { get; }
+        /// <summary>
+        /// The base registry key in which will be operated.
+        /// </summary>
+        public RegistryKey OperatingRegistryKey { get; }
 
+        /// <summary>
+        /// Creates a new instance of <see cref="RegistryStorer"/> with a specified application name.
+        /// </summary>
+        /// <param name="appName">The applications base name. This will be used as name for a sub key inside the software key below the base key.</param>
+        /// <remarks>
+        /// This will use current user as the base key.
+        /// </remarks>
         public RegistryStorer(string appName) : this(Registry.CurrentUser, appName) { }
 
+        /// <summary>
+        /// Creates a new instance of <see cref="RegistryStorer"/> with a specified application name.
+        /// </summary>
+        /// <param name="baseRegistryKey">Provide a key of <see cref="Registry"/>, e.G. <i>Registry.CurrentUser</i>.</param>
+        /// <param name="appName">The applications base name. This will be used as name for a sub key inside the software key below the base key.</param>
         public RegistryStorer(RegistryKey baseRegistryKey, string appName)
         {
             baseRegistryKey = baseRegistryKey.CreateSubKey("SOFTWARE");
-            BaseRegistryKey = baseRegistryKey?.CreateSubKey(appName);
+            OperatingRegistryKey = baseRegistryKey?.CreateSubKey(appName);
 
-            if (BaseRegistryKey == null)
+            if (OperatingRegistryKey == null)
                 throw new RegistryStorerException("Unable to create registriy key.");
         }
 
         public string ReadString(string section, string key, string defaultValue = "")
         {
-            var localRegKey = BaseRegistryKey.OpenSubKey(section);
+            var localRegKey = OperatingRegistryKey.OpenSubKey(section);
             return (string)localRegKey?.GetValue(key.ToUpper());
         }
 
@@ -45,7 +66,7 @@ namespace SweetLib.Classes.Storer
 
         public void WriteString(string section, string key, string value)
         {
-            var localRegKey = BaseRegistryKey.CreateSubKey(section);
+            var localRegKey = OperatingRegistryKey.CreateSubKey(section);
             localRegKey?.SetValue(key.ToUpper(), value);
         }
 
@@ -61,13 +82,13 @@ namespace SweetLib.Classes.Storer
 
         public void DeleteKey(string section, string key)
         {
-            var localRegKey = BaseRegistryKey.CreateSubKey(section);
+            var localRegKey = OperatingRegistryKey.CreateSubKey(section);
             localRegKey?.DeleteValue(key);
         }
 
         public void DeleteSection(string section)
         {
-            BaseRegistryKey.DeleteSubKey(section);
+            OperatingRegistryKey.DeleteSubKey(section);
         }
     }
 }
