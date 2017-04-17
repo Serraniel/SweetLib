@@ -51,6 +51,7 @@
     <Compile Include="Utils\Logger\Message\LogMessageFormatter.cs" />
     <Compile Include="Utils\Logger\Logger.cs" />
     <Compile Include="Utils\Logger\Message\LogMessage.cs" />
+    <Compile Include="Utils\SweetUtils.cs" />
     <Compile Include="Utils\TaskBar\TaskBarProgress.cs" />
   </ItemGroup>
   <ItemGroup />
