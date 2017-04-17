@@ -34,12 +34,25 @@ namespace SweetLib.Utils.Logger.Memory
             Dispose(false);
         }
 
-        private void ProcessQueue()
+        private void ProcessQueue(bool isDisposing = false)
         {
             if (LogQueue.IsEmpty)
                 return;
 
-            lock (this)
+            // if we are disposing no need to lock. This might cause issues!
+            if (!isDisposing)
+            {
+                lock (this)
+                {
+                    if (LogQueue.IsEmpty)
+                        return;
+
+                    LogMessage message;
+                    if (LogQueue.TryDequeue(out message))
+                        File.AppendAllText(TempFile, message.ToString());
+                }
+            }
+            else
             {
                 if (LogQueue.IsEmpty)
                     return;
@@ -129,7 +142,7 @@ namespace SweetLib.Utils.Logger.Memory
         {
             QueueTimer.Dispose();
 
-            ProcessQueue();
+            ProcessQueue(true);
 
             if (AutoArchiveOnDispose)
             {
