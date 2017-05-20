@@ -44,10 +44,20 @@ namespace SweetLib.Utils
         /// Converts a <see cref="DateTime"/> into an Unix timestamp.
         /// </summary>
         /// <param name="date"><see cref="DateTime"/> to convert into Unix timestamp.</param>
-        /// <returns>Converted Unix timestamp</returns>
+        /// <returns>Converted Unix timestamp.</returns>
         public static double DateTimeToUnixTimeStamp(DateTime date)
         {
             return date.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+        }
+
+        /// <summary>
+        /// Converts an Unix timestamp into a <see cref="DateTime"/>.
+        /// </summary>
+        /// <param name="timestamp">Unix timestamp to convert.</param>
+        /// <returns>Converted <see cref="DateTime"/>.</returns>
+        public static DateTime UnixTimestampToDateTime(double timestamp)
+        {
+            return new DateTime(1970, 1, 1).AddMilliseconds(timestamp);
         }
     }
 }
