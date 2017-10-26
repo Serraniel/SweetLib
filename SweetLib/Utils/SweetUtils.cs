@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SweetLib.Utils
 {
@@ -32,7 +29,7 @@ namespace SweetLib.Utils
         /// <returns>Legalized file name.</returns>
         public static string LegalizeFilename(string fileName, char replaceChar)
         {
-            var invalidChars = System.IO.Path.GetInvalidFileNameChars();
+            var invalidChars = Path.GetInvalidFileNameChars();
 
             if (invalidChars.Contains(replaceChar))
                 throw new IOException($"Replace character {replaceChar} is an invalid file name character.");

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using SweetLib.Classes.Storer;
 using SweetLib.Utils.Logger;
-using SweetLib.Utils.Logger.Message;
 
 namespace SweetLib.Demo.Console
 {

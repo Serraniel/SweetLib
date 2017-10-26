@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32;
-using SweetLib.Classes.Exception;
-
-namespace SweetLib.Classes.Storer
+﻿namespace SweetLib.Classes.Storer
 {
     /// <summary>
     /// Implementation of an <see cref="IStorer"/> interface which stores the data inside the registry. 
