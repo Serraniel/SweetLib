@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <Version>0.2.0</Version>
+    <Description>Sweet collection of helpful utils in .Net</Description>
+    <Authors>Serraniel</Authors>
+    <Company />
+    <Copyright>Copyright © 2017 by Serraniel</Copyright>
+    <PackageLicenseUrl>https://joinup.ec.europa.eu/page/eupl-text-11-12</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Serraniel/SweetLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
