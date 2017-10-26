@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <Version>0.2.0</Version>
+    <Version>0.2.0-alpha</Version>
     <Description>Sweet collection of helpful utils in .Net</Description>
     <Authors>Serraniel</Authors>
     <Company />
@@ -10,6 +10,12 @@
     <PackageLicenseUrl>https://joinup.ec.europa.eu/page/eupl-text-11-12</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Serraniel/SweetLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</PackageIconUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.3.0" />
+  </ItemGroup>
 
 </Project>
