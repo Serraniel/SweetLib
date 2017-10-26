@@ -16,7 +16,7 @@ namespace SweetLib.Utils.Logger.Memory
 
         private ConcurrentQueue<LogMessage> LogQueue { get; } = new ConcurrentQueue<LogMessage>();
 
-        public string ArchiveFile { get; set; } = null;
+        public string ArchiveFile { get; set; }
 
         public bool AutoArchiveOnDispose { get; set; } = true;
 
