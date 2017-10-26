@@ -7,9 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib.Demo", "SweetLib.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib.Demo.Console", "SweetLib.Demo.Console\SweetLib.Demo.Console.csproj", "{C8681E08-6F23-45E1-A16F-BBA72003219B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib.Old", "SweetLib.Old\SweetLib.Old.csproj", "{02C1F8EF-32F2-4E77-A36D-79129402AF37}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib", "SweetLib\SweetLib.csproj", "{7C15F2F3-2BF2-46FB-B813-9EEC1B41D679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib", "SweetLib\SweetLib.csproj", "{7C15F2F3-2BF2-46FB-B813-9EEC1B41D679}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{C8681E08-6F23-45E1-A16F-BBA72003219B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8681E08-6F23-45E1-A16F-BBA72003219B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8681E08-6F23-45E1-A16F-BBA72003219B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02C1F8EF-32F2-4E77-A36D-79129402AF37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02C1F8EF-32F2-4E77-A36D-79129402AF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02C1F8EF-32F2-4E77-A36D-79129402AF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02C1F8EF-32F2-4E77-A36D-79129402AF37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C15F2F3-2BF2-46FB-B813-9EEC1B41D679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C15F2F3-2BF2-46FB-B813-9EEC1B41D679}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C15F2F3-2BF2-46FB-B813-9EEC1B41D679}.Release|Any CPU.ActiveCfg = Release|Any CPU
