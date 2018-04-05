@@ -37,7 +37,7 @@ namespace SweetLib.Utils.Logger
         /// <summary>
         /// The default <see cref="ILogMemory"/> which will be used for any logging action, if no custom <see cref="ILogMemory"/> is set as parameter.
         /// </summary>
-        public static ILogMemory DefaultLogMemory = new ArchivableConsoleLogMemory();
+        public static ILogMemory DefaultLogMemory { get; set; } = new ArchivableConsoleLogMemory();
 
         /// <summary>
         /// Will log a message into the global <see cref="DefaultLogMemory"/>.

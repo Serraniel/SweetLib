@@ -8,7 +8,7 @@ using SweetLib.Utils.Logger.Message;
 
 namespace SweetLib.Utils.Logger.Memory
 {
-    public class ArchivableConsoleLogMemory : ILogMemory
+    public class ArchivableConsoleLogMemory : ILogMemory, IDisposable
     {
         private string TempFile { get; } = Path.GetTempFileName();
 
@@ -26,40 +26,54 @@ namespace SweetLib.Utils.Logger.Memory
         {
             ArchiveFile = archiveFile;
 
-            QueueTimer = new Timer(e => ProcessQueue(), null, TimeSpan.Zero, TimeSpan.FromSeconds(30));
+            QueueTimer = new Timer(e =>
+            {
+                if (Monitor.TryEnter(this))
+                {
+                    try
+                    {
+                        ProcessQueue();
+                    }
+                    finally
+                    {
+                        Monitor.Exit(this);
+                    }
+                }
+            }, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(500));
         }
 
         ~ArchivableConsoleLogMemory()
         {
-            Dispose(false);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        private void ProcessQueue(bool isDisposing = false)
+        private void ProcessQueue(bool disposing = false)
         {
+            // quick exit
             if (LogQueue.IsEmpty)
                 return;
 
-            // if we are disposing no need to lock. This might cause issues!
-            if (!isDisposing)
+            if (!disposing)
             {
                 lock (this)
                 {
-                    if (LogQueue.IsEmpty)
-                        return;
-
-                    LogMessage message;
-                    if (LogQueue.TryDequeue(out message))
-                        File.AppendAllText(TempFile, message.ToString());
+                    while (!LogQueue.IsEmpty)
+                    {
+                        LogMessage message;
+                        if (LogQueue.TryDequeue(out message))
+                            File.AppendAllText(TempFile, message.ToString() + Environment.NewLine);
+                    }
                 }
             }
             else
             {
-                if (LogQueue.IsEmpty)
-                    return;
-
-                LogMessage message;
-                if (LogQueue.TryDequeue(out message))
-                    File.AppendAllText(TempFile, message.ToString());
+                while (!LogQueue.IsEmpty)
+                {
+                    LogMessage message;
+                    if (LogQueue.TryDequeue(out message))
+                        File.AppendAllText(TempFile, message.ToString() + Environment.NewLine);
+                }
             }
         }
 
@@ -96,17 +110,14 @@ namespace SweetLib.Utils.Logger.Memory
 
         public void Forget(LogMessage message)
         {
-            lock (this)
+            var lines = File.ReadAllLines(TempFile).ToList();
+            foreach (var line in lines)
             {
-                var lines = File.ReadAllLines(TempFile).ToList();
-                foreach (var line in lines)
-                {
-                    if (line == message.ToString())
-                        lines.Remove(line);
-                }
-
-                File.WriteAllLines(TempFile, lines);
+                if (line == message.ToString())
+                    lines.Remove(line);
             }
+
+            File.WriteAllLines(TempFile, lines);
         }
 
         public void Archive(string fullFileName = null)
