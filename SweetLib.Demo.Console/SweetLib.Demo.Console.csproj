@@ -40,9 +40,6 @@
     <Reference Include="Microsoft.Win32.Registry, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.4.3.0\lib\net46\Microsoft.Win32.Registry.dll</HintPath>
     </Reference>
-    <Reference Include="SweetLib, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SweetLib.0.2.0-alpha\lib\netstandard1.3\SweetLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.AppContext.4.3.0\lib\net46\System.AppContext.dll</HintPath>
@@ -114,6 +111,16 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SweetLib.IO\SweetLib.IO.csproj">
+      <Project>{0874043e-42b3-43b2-b3bb-726cee4142e9}</Project>
+      <Name>SweetLib.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SweetLib\SweetLib.csproj">
+      <Project>{7c15f2f3-2bf2-46fb-b813-9eec1b41d679}</Project>
+      <Name>SweetLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
