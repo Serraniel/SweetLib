@@ -130,7 +130,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="short"/> type.
+        /// Converts a byte array into a <see cref="short"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -140,7 +140,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="ushort"/> type.
+        /// Converts a byte array into a <see cref="ushort"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -150,7 +150,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="int"/> type.
+        /// Converts a byte array into a <see cref="int"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -160,7 +160,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="uint"/> type.
+        /// Converts a byte array into a <see cref="uint"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -170,7 +170,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="long"/> type.
+        /// Converts a byte array into a <see cref="long"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -180,7 +180,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="ulong"/> type.
+        /// Converts a byte array into a <see cref="ulong"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -190,7 +190,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="float"/> type.
+        /// Converts a byte array into a <see cref="float"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -200,7 +200,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="double"/> type.
+        /// Converts a byte array into a <see cref="double"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -210,7 +210,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="bool"/> type.
+        /// Converts a byte array into a <see cref="bool"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -220,7 +220,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="DateTime"/> type.
+        /// Converts a byte array into a <see cref="DateTime"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -230,7 +230,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="string"/> type.
+        /// Converts a byte array into a <see cref="string"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
@@ -241,7 +241,7 @@ namespace SweetLib.Utils.Extensions
         }
 
         /// <summary>
-        /// Converts a <see cref="byte[]"/> into a <see cref="char"/> type.
+        /// Converts a byte array into a <see cref="char"/> type.
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
