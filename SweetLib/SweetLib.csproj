@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

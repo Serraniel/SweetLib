@@ -2,8 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
+    <Version>0.1.0-alpha</Version>
+    <Description>SweetLib IO package</Description>
+    <Authors>Serraniel</Authors>
+    <Company />
+    <Copyright>Copyright © 2017 by Serraniel</Copyright>
+    <PackageLicenseUrl>https://joinup.ec.europa.eu/page/eupl-text-11-12</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Serraniel/SweetLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</PackageIconUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard1.3\SweetLib.IO.xml</DocumentationFile>
+  </PropertyGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\SweetLib\SweetLib.csproj" />
   </ItemGroup>
