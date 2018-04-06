@@ -60,8 +60,7 @@ namespace SweetLib.Utils.Logger.Memory
                 {
                     while (!LogQueue.IsEmpty)
                     {
-                        LogMessage message;
-                        if (LogQueue.TryDequeue(out message))
+                        if (LogQueue.TryDequeue(out LogMessage message))
                             File.AppendAllText(TempFile, message.ToString() + Environment.NewLine);
                     }
                 }
@@ -70,8 +69,7 @@ namespace SweetLib.Utils.Logger.Memory
             {
                 while (!LogQueue.IsEmpty)
                 {
-                    LogMessage message;
-                    if (LogQueue.TryDequeue(out message))
+                    if (LogQueue.TryDequeue(out LogMessage message))
                         File.AppendAllText(TempFile, message.ToString() + Environment.NewLine);
                 }
             }

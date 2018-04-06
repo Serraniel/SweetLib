@@ -18,9 +18,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard1.3\SweetLib.IO.xml</DocumentationFile>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\SweetLib\SweetLib.csproj" />
+    <PackageReference Include="SweetLib" Version="0.2.1-alpha" />
+    <PackageReference Include="Vsxmd" Version="1.2.0" />
   </ItemGroup>
 
 </Project>

@@ -58,9 +58,7 @@ namespace SweetLib.IO.Classes.Streaming
 
         private static byte[] LoadFromStream(Stream stream, StreamedObjectType type)
         {
-            long length;
-
-            LoadMetaDataFromStream(stream, out StreamedObjectType foundType, out length);
+            LoadMetaDataFromStream(stream, out StreamedObjectType foundType, out long length);
 
             if (foundType != type)
                 throw new StreamTypeException($"Expected {type} but found {foundType} instead.");
@@ -156,6 +154,7 @@ namespace SweetLib.IO.Classes.Streaming
         /// </summary>
         /// <param name="stream"><see cref="Stream"/> to which the <see cref="Stream"/> will be added.</param>
         /// <param name="value"><see cref="Stream"/> value to add.</param>
+        /// <param name="resetSourceStream">If true, the full given <see cref="value"/> will be copied, otherwhise the stream will be copied from current position until its end.</param>
         public static void SaveToStream(Stream stream, Stream value, bool resetSourceStream = false)
         {
             if (resetSourceStream)

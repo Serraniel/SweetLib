@@ -47,8 +47,7 @@ namespace SweetLib.Classes.Storer
 
         public int ReadInteger(string section, string key, int defaultValue = 0)
         {
-            int result;
-            if (!int.TryParse(ReadString(section, key, defaultValue.ToString()), out result))
+            if (!int.TryParse(ReadString(section, key, defaultValue.ToString()), out int result))
                 result = defaultValue;
 
             return result;
