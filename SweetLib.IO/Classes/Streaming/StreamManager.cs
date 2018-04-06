@@ -55,10 +55,9 @@ namespace SweetLib.IO.Classes.Streaming
 
         private static byte[] LoadFromStream(Stream stream, StreamedObjectType type)
         {
-            StreamedObjectType foundType;
             long length;
 
-            LoadMetaDataFromStream(stream, out foundType, out length);
+            LoadMetaDataFromStream(stream, out StreamedObjectType foundType, out length);
 
             if (foundType != type)
                 throw new StreamTypeException($"Expected {type} but found {foundType} instead.");
@@ -68,7 +67,7 @@ namespace SweetLib.IO.Classes.Streaming
 
             return buffer;
         }
-
+        
         public static void SaveToStream(Stream stream, string value)
         {
             SaveToStream(stream, StreamedObjectType.StringValue, value.AsBytes());
