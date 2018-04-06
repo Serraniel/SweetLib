@@ -13,7 +13,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this short value)
+        public static byte[] AsBytes(this short value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -23,7 +23,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this ushort value)
+        public static byte[] AsBytes(this ushort value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -33,7 +33,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this int value)
+        public static byte[] AsBytes(this int value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -43,7 +43,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this uint value)
+        public static byte[] AsBytes(this uint value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -53,7 +53,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this long value)
+        public static byte[] AsBytes(this long value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -63,7 +63,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this ulong value)
+        public static byte[] AsBytes(this ulong value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -73,7 +73,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this float value)
+        public static byte[] AsBytes(this float value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -83,7 +83,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this double value)
+        public static byte[] AsBytes(this double value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -93,7 +93,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this bool value)
+        public static byte[] AsBytes(this bool value)
         {
             return BitConverter.GetBytes(value);
         }
@@ -103,7 +103,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
-        public static byte[] ToBytes(this DateTime value)
+        public static byte[] AsBytes(this DateTime value)
         {
             return BitConverter.GetBytes(value.ToUnixTimeStamp());
         }
@@ -114,9 +114,19 @@ namespace SweetLib.Utils.Extensions
         /// <param name="value">Value to convert.</param>
         /// <returns>Byte array representation of the value.</returns>
         /// <remarks>Using <see cref="UTF32Encoding"/> for converting.</remarks>
-        public static byte[] ToBytes(this string value)
+        public static byte[] AsBytes(this string value)
         {
             return Encoding.UTF32.GetBytes(value);
+        }
+
+        /// <summary>
+        /// Converts a <see cref="char"/> value into a byte array.
+        /// </summary>
+        /// <param name="value">Value to convert.</param>
+        /// <returns>Byte array representation of the value.</returns>
+        public static byte[] AsBytes(this char value)
+        {
+            return BitConverter.GetBytes(value);
         }
 
         /// <summary>
@@ -124,7 +134,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static short ToInt16(this byte[] bytes)
+        public static short AsInt16(this byte[] bytes)
         {
             return BitConverter.ToInt16(bytes, 0);
         }
@@ -134,7 +144,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static ushort ToUInt16(this byte[] bytes)
+        public static ushort AsUInt16(this byte[] bytes)
         {
             return BitConverter.ToUInt16(bytes, 0);
         }
@@ -144,7 +154,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static int ToInt32(this byte[] bytes)
+        public static int AsInt32(this byte[] bytes)
         {
             return BitConverter.ToInt32(bytes, 0);
         }
@@ -154,7 +164,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static uint ToUInt32(this byte[] bytes)
+        public static uint AsUInt32(this byte[] bytes)
         {
             return BitConverter.ToUInt32(bytes, 0);
         }
@@ -164,7 +174,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static long ToInt64(this byte[] bytes)
+        public static long AsInt64(this byte[] bytes)
         {
             return BitConverter.ToInt64(bytes, 0);
         }
@@ -174,7 +184,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static ulong ToUInt64(this byte[] bytes)
+        public static ulong AsUInt64(this byte[] bytes)
         {
             return BitConverter.ToUInt64(bytes, 0);
         }
@@ -184,7 +194,7 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static float ToSingle(this byte[] bytes)
+        public static float AsSingle(this byte[] bytes)
         {
             return BitConverter.ToSingle(bytes, 0);
         }
@@ -194,9 +204,29 @@ namespace SweetLib.Utils.Extensions
         /// </summary>
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
-        public static double ToDouble(this byte[] bytes)
+        public static double AsDouble(this byte[] bytes)
         {
             return BitConverter.ToDouble(bytes, 0);
+        }
+
+        /// <summary>
+        /// Converts a <see cref="byte[]"/> into a <see cref="bool"/> type.
+        /// </summary>
+        /// <param name="bytes">Byte array representation to convert.</param>
+        /// <returns>Converted value.</returns>
+        public static bool AsBool(this byte[] bytes)
+        {
+            return BitConverter.ToBoolean(bytes, 0);
+        }
+
+        /// <summary>
+        /// Converts a <see cref="byte[]"/> into a <see cref="DateTime"/> type.
+        /// </summary>
+        /// <param name="bytes">Byte array representation to convert.</param>
+        /// <returns>Converted value.</returns>
+        public static DateTime AsDateTime(this byte[] bytes)
+        {
+            return BitConverter.ToDouble(bytes, 0).ToDateTime();
         }
 
         /// <summary>
@@ -205,9 +235,19 @@ namespace SweetLib.Utils.Extensions
         /// <param name="bytes">Byte array representation to convert.</param>
         /// <returns>Converted value.</returns>
         /// <remarks>Using <see cref="UTF32Encoding"/> for converting.</remarks>
-        public static string ToString(this byte[] bytes)
+        public static string AsString(this byte[] bytes)
         {
             return Encoding.UTF32.GetString(bytes);
+        }
+
+        /// <summary>
+        /// Converts a <see cref="byte[]"/> into a <see cref="char"/> type.
+        /// </summary>
+        /// <param name="bytes">Byte array representation to convert.</param>
+        /// <returns>Converted value.</returns>
+        public static char AsChar(this byte[] bytes)
+        {
+            return BitConverter.ToChar(bytes, 0);
         }
     }
 }
