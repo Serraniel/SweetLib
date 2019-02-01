@@ -18,6 +18,8 @@ namespace SweetLib.Utils.Logger.Memory
 
         public string ArchiveFile { get; set; }
 
+        public bool AutoProcessQueue { get; set; } = true;
+
         public bool AutoArchiveOnDispose { get; set; } = true;
 
         public ArchivableConsoleLogMemory() : this(null) { }
@@ -102,6 +104,9 @@ namespace SweetLib.Utils.Logger.Memory
             LogQueue.Enqueue(message);
 
             Console.ForegroundColor = consoleColor;
+
+            if (AutoProcessQueue)
+                ProcessQueue();
         }
 
 
@@ -161,8 +166,6 @@ namespace SweetLib.Utils.Logger.Memory
                 }
                 catch (FileNotFoundException)
                 {
-                    if (disposing)
-                        throw;
                 }
             }
 
