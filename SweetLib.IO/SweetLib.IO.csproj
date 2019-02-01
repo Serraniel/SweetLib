@@ -19,6 +19,11 @@
     <DocumentationFile>bin\Release\netstandard1.3\SweetLib.IO.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\Docs\SweetLib.IO</DocumentationFile>
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="SweetLib" Version="0.2.1-alpha" />
     <PackageReference Include="Vsxmd" Version="1.2.0" />

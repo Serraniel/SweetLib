@@ -1,0 +1,538 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SweetLib</name>
+    </assembly>
+    <members>
+        <member name="T:SweetLib.Classes.Exceptions.RegistryStorerException">
+            <summary>
+            Exception thrown by <see cref="T:SweetLib.Classes.Storer.RegistryStorer"/>.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Classes.Exceptions.RegistryStorerException.#ctor">
+            <summary>
+            Creates a new <see cref="T:SweetLib.Classes.Exceptions.RegistryStorerException"/>.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Classes.Exceptions.RegistryStorerException.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:SweetLib.Classes.Exceptions.RegistryStorerException"/>.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="T:SweetLib.Classes.Storer.IniFileStorer">
+            <summary>
+            Implementation of an <see cref="T:SweetLib.Classes.Storer.IStorer"/> interface which stores the data inside an ini file.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Classes.Storer.IniFileStorer.FileName">
+            <summary>
+            Ini file path.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IniFileStorer.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:SweetLib.Classes.Storer.IniFileStorer"/> with a specified file name.
+            </summary>
+            <param name="fileName">The file name of the ini file.</param>
+        </member>
+        <member name="T:SweetLib.Classes.Storer.IStorer">
+            <summary>
+            Interface, which provides several methods to store simple data.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.ReadString(System.String,System.String,System.String)">
+            <summary>
+            Reads a string value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="defaultValue">Default value, if this value does not exist.</param>
+            <returns>Value of the <see cref="!:key"/> in <see cref="!:section"/>.</returns>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.ReadInteger(System.String,System.String,System.Int32)">
+            <summary>
+            Reads an integer value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="defaultValue">Default value, if this value does not exist.</param>
+            <returns>Value of the <see cref="!:key"/> in <see cref="!:section"/>.</returns>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.ReadBool(System.String,System.String,System.Boolean)">
+            <summary>
+            Reads a bool value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="defaultValue">Default value, if this value does not exist.</param>
+            <returns>Value of the <see cref="!:key"/> in <see cref="!:section"/>.</returns>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.HasKey(System.String,System.String)">
+            <summary>
+            Checks, if a key exists inside a section.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <returns>True, if <see cref="!:key"/> is found inside <see cref="!:section"/>.</returns>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.WriteString(System.String,System.String,System.String)">
+            <summary>
+            Writes a string value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="value">Value to be stored.</param>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.WriteInteger(System.String,System.String,System.Int32)">
+            <summary>
+            Writes an integer value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="value">Value to be stored.</param>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.WriteBool(System.String,System.String,System.Boolean)">
+            <summary>
+            Writes a bool value.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key of the stored data.</param>
+            <param name="value">Value to be stored.</param>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.DeleteKey(System.String,System.String)">
+            <summary>
+            Deletes a key inside a <see cref="!:section"/>.
+            </summary>
+            <param name="section">Represents the section in which the data is stored.</param>
+            <param name="key">Represents the key to be deleted.</param>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.IStorer.DeleteSection(System.String)">
+            <summary>
+            Deletes a section with all its keys.
+            </summary>
+            <param name="section">Represents the section to be deleted.</param>
+        </member>
+        <member name="T:SweetLib.Classes.Storer.RegistryStorer">
+            <summary>
+            Implementation of an <see cref="T:SweetLib.Classes.Storer.IStorer"/> interface which stores the data inside the registry. 
+            </summary>
+            <remarks>
+            Sections will be interpreted as subkeys on registry level.
+            </remarks>
+        </member>
+        <member name="P:SweetLib.Classes.Storer.RegistryStorer.OperatingRegistryKey">
+            <summary>
+            The base registry key in which will be operated.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.RegistryStorer.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:SweetLib.Classes.Storer.RegistryStorer"/> with a specified application name.
+            </summary>
+            <param name="appName">The applications base name. This will be used as name for a sub key inside the software key below the base key.</param>
+            <remarks>
+            This will use current user as the base key.
+            </remarks>
+        </member>
+        <member name="M:SweetLib.Classes.Storer.RegistryStorer.#ctor(Microsoft.Win32.RegistryKey,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:SweetLib.Classes.Storer.RegistryStorer"/> with a specified application name.
+            </summary>
+            <param name="baseRegistryKey">Provide a key of <see cref="T:Microsoft.Win32.Registry"/>, e.G. <i>Registry.CurrentUser</i>.</param>
+            <param name="appName">The applications base name. This will be used as name for a sub key inside the software key below the base key.</param>
+        </member>
+        <member name="T:SweetLib.Utils.Extensions.BaseTypeExtensions">
+            <summary>
+            Defines extensions to some general classes.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Int16)">
+            <summary>
+            Converts a <see cref="T:System.Int16"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.UInt16)">
+            <summary>
+            Converts a <see cref="T:System.UInt16"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Int32)">
+            <summary>
+            Converts a <see cref="T:System.Int32"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.UInt32)">
+            <summary>
+            Converts a <see cref="T:System.UInt32"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Int64)">
+            <summary>
+            Converts a <see cref="T:System.Int64"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.UInt64)">
+            <summary>
+            Converts a <see cref="T:System.UInt64"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Single)">
+            <summary>
+            Converts a <see cref="T:System.Single"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Double)">
+            <summary>
+            Converts a <see cref="T:System.Double"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Boolean)">
+            <summary>
+            Converts a <see cref="T:System.Boolean"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.String)">
+            <summary>
+            Converts a <see cref="T:System.String"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+            <remarks>Using <see cref="T:System.Text.UTF32Encoding"/> for converting.</remarks>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBytes(System.Char)">
+            <summary>
+            Converts a <see cref="T:System.Char"/> value into a byte array.
+            </summary>
+            <param name="value">Value to convert.</param>
+            <returns>Byte array representation of the value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsInt16(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Int16"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsUInt16(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.UInt16"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsInt32(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Int32"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsUInt32(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.UInt32"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsInt64(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Int64"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsUInt64(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.UInt64"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsSingle(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Single"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsDouble(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Double"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsBool(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Boolean"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsDateTime(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.DateTime"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsString(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.String"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+            <remarks>Using <see cref="T:System.Text.UTF32Encoding"/> for converting.</remarks>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.BaseTypeExtensions.AsChar(System.Byte[])">
+            <summary>
+            Converts a byte array into a <see cref="T:System.Char"/> type.
+            </summary>
+            <param name="bytes">Byte array representation to convert.</param>
+            <returns>Converted value.</returns>
+        </member>
+        <member name="T:SweetLib.Utils.Extensions.DateTimeExtensions">
+            <summary>
+            Defines extensions to classes which are related to <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.DateTimeExtensions.ToUnixTimeStamp(System.DateTime)">
+            <summary>
+            Converts a <see cref="T:System.DateTime"/> into an Unix timestamp.
+            </summary>
+            <param name="date"><see cref="T:System.DateTime"/> to convert into Unix timestamp.</param>
+            <returns>Converted Unix timestamp.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Extensions.DateTimeExtensions.ToDateTime(System.Double)">
+            <summary>
+            Converts an Unix timestamp into a <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="timestamp">Unix timestamp to convert.</param>
+            <returns>Converted <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="T:SweetLib.Utils.Logger.LogLevel">
+            <summary>
+            Enum which contains the several log levels.
+            </summary>
+        </member>
+        <member name="T:SweetLib.Utils.Logger.Logger">
+            <summary>
+            Global logger class providing several methods to log events by the application.
+            </summary>
+            <remarks>
+            As <see cref="P:SweetLib.Utils.Logger.Logger.DefaultLogMemory"/> a <see cref="T:SweetLib.Utils.Logger.Memory.ArchivableConsoleLogMemory"/> will be used. You can change this to any other implementation at any time while runtime. 
+            Default log levels are set as bitflags in <see cref="P:SweetLib.Utils.Logger.Logger.GlobalLogLevel"/>.
+            </remarks>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Logger.GlobalLogLevel">
+            <summary>
+            The global log level. Only messages with the set <see cref="T:SweetLib.Utils.Logger.LogLevel"/> will be procedered.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Logger.DefaultLogMemory">
+            <summary>
+            The default <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/> which will be used for any logging action, if no custom <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/> is set as parameter.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Log(SweetLib.Utils.Logger.LogLevel,System.String)">
+            <summary>
+            Will log a message into the global <see cref="P:SweetLib.Utils.Logger.Logger.DefaultLogMemory"/>.
+            </summary>
+            <param name="logLevel">The log level of this message.</param>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Log(SweetLib.Utils.Logger.LogLevel,System.String,SweetLib.Utils.Logger.Memory.ILogMemory)">
+            <summary>
+            Will log a message into the provided <see cref="!:logMemory"/>.
+            </summary>
+            <param name="logLevel">The log level of this message.</param>
+            /// <param name="message">The message to log.</param>
+            <param name="logMemory">The <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/> to store the <see cref="!:message"/> into.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Log(SweetLib.Utils.Logger.Message.LogMessage,SweetLib.Utils.Logger.Memory.ILogMemory)">
+            <summary>
+            Will log a message into the provided <see cref="!:logMemory"/>.
+            </summary>
+            <param name="message">A <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> object to store.</param>
+            <param name="logMemory">The <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/> to store the <see cref="!:message"/> into.</param>
+            <remarks>In general use cases you should either use one of the <see cref="M:SweetLib.Utils.Logger.Logger.Log(SweetLib.Utils.Logger.LogLevel,System.String)"/> or <see cref="M:SweetLib.Utils.Logger.Logger.Log(SweetLib.Utils.Logger.LogLevel,System.String)"/> methods which will generate a call to this method.</remarks>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Trace(System.String)">
+            <summary>
+            Will log a message with the <see cref="F:SweetLib.Utils.Logger.LogLevel.Trace"/> log level.
+            </summary>
+            <param name="message">Message to log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Debug(System.String)">
+            <summary>
+            Will log a message with the <see cref="F:SweetLib.Utils.Logger.LogLevel.Debug"/> log level.
+            </summary>
+            <param name="message">Message to log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Info(System.String)">
+            <summary>
+            Will log a message with the <see cref="F:SweetLib.Utils.Logger.LogLevel.Info"/> log level.
+            </summary>
+            <param name="message">Message to log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Warn(System.String)">
+            <summary>
+            Will log a message with the <see cref="F:SweetLib.Utils.Logger.LogLevel.Warn"/> log level.
+            </summary>
+            <param name="message">Message to log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Logger.Error(System.String)">
+            <summary>
+            Will log a message with the <see cref="F:SweetLib.Utils.Logger.LogLevel.Error"/> log level.
+            </summary>
+            <param name="message">Message to log.</param>
+        </member>
+        <member name="T:SweetLib.Utils.Logger.Memory.ILogMemory">
+            <summary>
+            Interface for a class to store and proceed <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> objects. 
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Memory.ILogMemory.Remember(SweetLib.Utils.Logger.Message.LogMessage)">
+            <summary>
+            Adds a <see cref="!:message"/> into the <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/>.
+            </summary>
+            <param name="message"><see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> to be stored.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Memory.ILogMemory.Forget(SweetLib.Utils.Logger.Message.LogMessage)">
+            <summary>
+            Removes a <see cref="!:message"/> from the <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/>.
+            </summary>
+            <param name="message"><see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> to be removed.</param>
+            <remarks>This might not have any effect depending on the <see cref="T:SweetLib.Utils.Logger.Memory.ILogMemory"/> implementation.</remarks>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Memory.ILogMemory.Archive(System.String)">
+            <summary>
+            Saves all remembered <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> objects into a persistent file.
+            </summary>
+            <param name="fullFileName">File name to store the <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> objects.</param>
+        </member>
+        <member name="T:SweetLib.Utils.Logger.Message.LogMessage">
+            <summary>
+            <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> contains all event log data which should be logged in as a single log message.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Message.LogMessage.LogLevel">
+            <summary>
+            The <see cref="P:SweetLib.Utils.Logger.Message.LogMessage.LogLevel"/> of this event log.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Message.LogMessage.Message">
+            <summary>
+            The message of this event log.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Message.LogMessage.LogDateTime">
+            <summary>
+            The date and time of this event log.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Message.LogMessage.#ctor(SweetLib.Utils.Logger.LogLevel,System.String)">
+            <summary>
+            Creates a new <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> instance. <see cref="P:System.DateTime.Now"/> will be the <see cref="P:SweetLib.Utils.Logger.Message.LogMessage.LogDateTime"/>.
+            </summary>
+            <param name="logLevel">The log level of this event log.</param>
+            <param name="message">The message of this event log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Message.LogMessage.#ctor(SweetLib.Utils.Logger.LogLevel,System.String,System.DateTime)">
+            <summary>
+            Creates a new <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> instance.
+            </summary>
+            <param name="logLevel">The log level of this event log.</param>
+            <param name="message">The message of this event log.</param>
+            <param name="logDateTime">The <see cref="T:System.DateTime"/> of this event log.</param>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Message.LogMessage.ToString">
+            <summary>
+            Generates a formatted <see cref="T:System.String"/> of this event log. <see cref="P:SweetLib.Utils.Logger.Message.LogMessageFormatter.DefaultFormatString"/> will be used to format this event log.
+            </summary>
+            <returns>A formated <see cref="T:System.String"/> of this event log.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Message.LogMessage.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Generates a formatted <see cref="T:System.String"/> of this event log with a given format.
+            </summary>
+            <param name="format">The format to be used. See <see cref="T:SweetLib.Utils.Logger.Message.LogMessageFormatter"/> for more format information.</param>
+            <param name="formatProvider">Optional, an <see cref="T:System.IFormatProvider"/> interface to be used while formatting if needed.</param>
+            <returns>A formated <see cref="T:System.String"/> of this event log.</returns>
+        </member>
+        <member name="T:SweetLib.Utils.Logger.Message.LogMessageFormatter">
+            <summary>
+            A <see cref="T:System.ICustomFormatter"/> which is used to format <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> objects.
+            </summary>
+            <remarks>This class implements a singleton pattern.</remarks>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Message.LogMessageFormatter.FormatterInstance">
+            <summary>
+            Accesses the global instance of the <see cref="T:SweetLib.Utils.Logger.Message.LogMessageFormatter"/>.
+            </summary>
+        </member>
+        <member name="P:SweetLib.Utils.Logger.Message.LogMessageFormatter.Instance">
+            <summary>
+            The default format string which is used to format <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> objects, if no custom format string is provided.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.Logger.Message.LogMessageFormatter.Format(System.String,System.Object,System.IFormatProvider)">
+            <summary>
+            Formats a <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> object.
+            </summary>
+            <param name="format">The format string. If <see cref="!:null"/>, <see cref="P:SweetLib.Utils.Logger.Message.LogMessageFormatter.DefaultFormatString"/> will be used.</param>
+            <param name="arg">The <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> object to be formatted.</param>
+            <param name="formatProvider">Optional, an <see cref="T:System.IFormatProvider"/> interface to be used while formatting if needed.</param>
+            <returns>A formatted <see cref="T:System.String"/> of the <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/>.</returns>
+            <remarks>
+            If <see cref="!:arg"/> is not a <see cref="T:SweetLib.Utils.Logger.Message.LogMessage"/> object, it will either be returned the formatted string implemented by the type of <see cref="!:arg"/>, if <see cref="T:System.IFormattable"/> is implemented by it, or the <see cref="!:arg.ToString()"/> result."
+            </remarks>
+        </member>
+        <member name="T:SweetLib.Utils.SweetUtils">
+            <summary>
+            A generic class containing useful methods.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Utils.SweetUtils.LegalizeFilename(System.String)">
+            <summary>
+            Legalizes a file name with the <see cref="P:SweetLib.Utils.SweetUtils.DefaultFileNameReplaceChar"/> character.
+            </summary>
+            <param name="fileName">File name to legalize.</param>
+            <returns>Legalized file name.</returns>
+        </member>
+        <member name="M:SweetLib.Utils.SweetUtils.LegalizeFilename(System.String,System.Char)">
+            <summary>
+            Legalizes a file name by a given replace character.
+            </summary>
+            <param name="fileName">File name to legalize.</param>
+            <param name="replaceChar">Character to be used as replace character.</param>
+            <returns>Legalized file name.</returns>
+        </member>
+    </members>
+</doc>
