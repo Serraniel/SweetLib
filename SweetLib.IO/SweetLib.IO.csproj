@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
-    <Version>0.1.0-alpha</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.0-alpha.1</Version>
     <Description>SweetLib IO package</Description>
     <Authors>Serraniel</Authors>
     <Company />
-    <Copyright>Copyright © 2017 by Serraniel</Copyright>
-    <PackageLicenseUrl>https://joinup.ec.europa.eu/page/eupl-text-11-12</PackageLicenseUrl>
+    <Copyright>Copyright © 2017-2020 by Serraniel</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Serraniel/SweetLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>0.1.0.2</AssemblyVersion>
+    <FileVersion>0.1.0.2</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -27,6 +30,13 @@
   <ItemGroup>
     <PackageReference Include="SweetLib" Version="0.2.1-alpha" />
     <PackageReference Include="Vsxmd" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\SweetFileManager\libs\SweetLib\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
