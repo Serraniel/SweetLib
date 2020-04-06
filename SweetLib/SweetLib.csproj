@@ -2,17 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <Version>0.2.1-alpha</Version>
+    <Version>0.2.1-alpha.1</Version>
     <Description>Sweet collection of helpful utils in .Net</Description>
     <Authors>Serraniel</Authors>
     <Company />
-    <Copyright>Copyright © 2017-2018 by Serraniel</Copyright>
-    <PackageLicenseUrl>https://joinup.ec.europa.eu/page/eupl-text-11-12</PackageLicenseUrl>
+    <Copyright>Copyright © 2017-2020 by Serraniel</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Serraniel/SweetLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Serraniel/SweetLib</RepositoryUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>https://github.com/Serraniel/SweetLib/blob/develop/nuget_icon.png?raw=true</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RepositoryType>Git</RepositoryType>
+    <AssemblyVersion>0.2.1.3</AssemblyVersion>
+    <FileVersion>0.2.1.3</FileVersion>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -27,6 +31,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.3.0" />
     <PackageReference Include="Vsxmd" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\SweetFileManager\libs\SweetLib\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
