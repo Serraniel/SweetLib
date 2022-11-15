@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib.Demo", "SweetLib.Demo\SweetLib.Demo.csproj", "{9350E0D4-9FE7-49D5-ACDE-E857E547889C}"
 EndProject
@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{5C88E7F1-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9036EBA5-45D0-441D-9C81-AF4F86C8A8F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SweetLib.IO", "SweetLib.IO\SweetLib.IO.csproj", "{0874043E-42B3-43B2-B3BB-726CEE4142E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib.IO", "SweetLib.IO\SweetLib.IO.csproj", "{0874043E-42B3-43B2-B3BB-726CEE4142E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib.Storage", "SweetLib.Storage\SweetLib.Storage.csproj", "{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{0874043E-42B3-43B2-B3BB-726CEE4142E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0874043E-42B3-43B2-B3BB-726CEE4142E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0874043E-42B3-43B2-B3BB-726CEE4142E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
