@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib.IO", "SweetLib.IO\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib.Storage", "SweetLib.Storage\SweetLib.Storage.csproj", "{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SweetLib.Storage.MySql", "SweetLib.Storage.MySql\SweetLib.Storage.MySql.csproj", "{EEDC1D23-1CA9-4A1D-85CB-C71E73E10B12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E08BDA4B-BA1E-44F8-9D97-D11F80F8F9F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDC1D23-1CA9-4A1D-85CB-C71E73E10B12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDC1D23-1CA9-4A1D-85CB-C71E73E10B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDC1D23-1CA9-4A1D-85CB-C71E73E10B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDC1D23-1CA9-4A1D-85CB-C71E73E10B12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

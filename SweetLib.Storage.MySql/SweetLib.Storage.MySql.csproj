@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>0.1.0-alpha.1</Version>
-    <Description>SweetLib Storage package</Description>
+    <Description>SweetLib MySql Storage package</Description>
     <Authors>Serraniel</Authors>
     <Company />
     <Copyright>Copyright © 2017-2022 by Serraniel</Copyright>
@@ -16,6 +16,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <AssemblyVersion>0.1.0.3</AssemblyVersion>
     <FileVersion>0.1.0.3</FileVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -23,11 +24,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>..\Docs\SweetLib.Storage</DocumentationFile>
+    <DocumentationFile>..\Docs\SweetLib.Storage.MySql</DocumentationFile>
     <OutputPath></OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
     <PackageReference Include="Vsxmd" Version="1.2.0" />
   </ItemGroup>
 
@@ -36,6 +38,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SweetLib.Storage\SweetLib.Storage.csproj" />
   </ItemGroup>
 
 </Project>

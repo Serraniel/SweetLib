@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SweetLib.Storage</name>
+    </assembly>
+    <members>
+        <member name="T:SweetLib.Storage.Database.IConnectionProvider`1">
+            <summary>
+                Provider for database connection.
+            </summary>
+            <typeparam name="T">Specific type of the database connection. Must inherit <see cref="T:System.Data.Common.DbConnection" />.</typeparam>
+        </member>
+        <member name="M:SweetLib.Storage.Database.IConnectionProvider`1.GetConnection">
+            <summary>
+                Gets an instance of a database connection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SweetLib.Storage.Database.IDatabaseObject`1">
+            <summary>
+                Object to store in database.
+            </summary>
+            <typeparam name="T">Type of the used identifier.</typeparam>
+        </member>
+        <member name="M:SweetLib.Storage.Database.IDatabaseObject`1.AssignFieldNames">
+            <summary>
+                Assigns field names of the database columns.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.Database.IDatabaseObject`1.AssignToAsync(System.Data.Common.DbParameterCollection)">
+            <summary>
+                Assigns values to the query parameters.
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.Database.IDatabaseObject`1.AssignFromAsync(System.Data.Common.DbDataReader)">
+            <summary>
+                Assigns values to the object.
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.Database.IDatabaseObject`1.TableName">
+            <summary>
+                Table name of the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SweetLib.Storage.IIdentified`1">
+            <summary>
+                Interface for identified objects.
+            </summary>
+            <typeparam name="T">Type of the identifier.</typeparam>
+        </member>
+        <member name="P:SweetLib.Storage.IIdentified`1.Id">
+            <summary>
+                Identifier of the object.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Storage.IIdentified`1.UnidentifiedId">
+            <summary>
+                Gets a dummy Id for unidentified instances;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SweetLib.Storage.IIdGenerator`1">
+            <summary>
+                Generates a new object id.
+            </summary>
+            <typeparam name="T">Type of the used identifier.</typeparam>
+        </member>
+        <member name="M:SweetLib.Storage.IIdGenerator`1.GenerateNewId">
+            <summary>
+                Generates a new id of the specified type.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.IIdGenerator`1.GenerateNewIdAsync">
+            <summary>
+                Generates a new id of the specified type. Runs asynchronous.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SweetLib.Storage.IStorable`1">
+            <summary>
+                Interface for objects which can be stored and restored.
+            </summary>
+            <typeparam name="T">Type of the used identifier.</typeparam>
+        </member>
+        <member name="M:SweetLib.Storage.IStorable`1.Store">
+            <summary>
+                Stores the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.IStorable`1.Restore(`0)">
+            <summary>
+                Restores an object.
+            </summary>
+            <param name="identifier">Identifier of the object to restore.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SweetLib.Storage.IStorable`1.IsNew">
+            <summary>
+                Determines whether the current object instance is new or already exists.
+            </summary>
+            <returns>Boolean indicating if the current object instance is new or already exists.</returns>
+        </member>
+    </members>
+</doc>
