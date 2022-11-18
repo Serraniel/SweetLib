@@ -1,12 +1,11 @@
-﻿using System.Data.Common;
+﻿using System.Data;
 
-namespace SweetLib.Storage.Database
+namespace SweetLib.Storage
 {
     /// <summary>
     ///     Provider for database connection.
     /// </summary>
-    /// <typeparam name="T">Specific type of the database connection. Must inherit <see cref="DbConnection" />.</typeparam>
-    public interface IConnectionProvider<T> where T : DbConnection
+    public interface IConnectionProvider<out T> where T : IDbConnection
     {
         /// <summary>
         ///     Gets an instance of a database connection.

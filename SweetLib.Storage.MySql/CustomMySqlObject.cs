@@ -2,7 +2,6 @@
 using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using SweetLib.Storage.Database;
 using SweetLib.Storage.MySql.Helper;
 
@@ -10,7 +9,7 @@ namespace SweetLib.Storage.MySql;
 
 public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
 {
-    protected CustomMySqlObject(IConnectionProvider<MySqlConnection> connectionProvider,
+    protected CustomMySqlObject(IDatabaseConnectionProvider connectionProvider,
         IIdGenerator<T> idGenerator)
     {
         ConnectionProvider = connectionProvider;
@@ -18,7 +17,7 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         Id = UnidentifiedId();
     }
 
-    protected IConnectionProvider<MySqlConnection> ConnectionProvider { get; }
+    protected IDatabaseConnectionProvider ConnectionProvider { get; }
     protected IIdGenerator<T> IdGenerator { get; }
 
     public T Id { get; set; }
@@ -50,7 +49,7 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         }
         finally
         {
-            await connection.CloseAsync();
+            connection.Close();
         }
     }
 
@@ -59,7 +58,7 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         return Id.Equals(UnidentifiedId());
     }
 
-    public IEnumerable<string> AssignFieldNames()
+    public virtual IEnumerable<string> AssignFieldNames()
     {
         var result = new List<string>();
         result.Add(IdFieldName());
@@ -67,15 +66,16 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         return result;
     }
 
-    public async Task AssignToAsync(DbParameterCollection parameters)
+    public virtual async Task AssignToAsync(DbParameterCollection parameters)
     {
         if (IsNew()) Id = await IdGenerator.GenerateNewIdAsync();
 
         parameters.AddMySqlParameterWithValue("@Id", Id);
     }
 
-    public async Task AssignFromAsync(DbDataReader reader)
+    public virtual async Task AssignFromAsync(DbDataReader reader)
     {
+        await reader.ReadAsync();
         Id = (T)reader["Id"];
     }
 
@@ -89,7 +89,7 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         {
             var command = connection.CreateCommand();
             command.CommandText = $"SELECT * FROM {TableName()} WHERE Id=@id";
-            command.Parameters.AddWithValue("@id", identifier);
+            command.Parameters.AddMySqlParameterWithValue("@id", identifier);
 
             var reader = await command.ExecuteReaderAsync();
             if (!reader.HasRows)
@@ -100,7 +100,7 @@ public abstract class CustomMySqlObject<T> : IDatabaseObject<T>
         }
         finally
         {
-            await connection.CloseAsync();
+            connection.Close();
         }
     }
 

@@ -4,18 +4,6 @@
         <name>SweetLib.Storage</name>
     </assembly>
     <members>
-        <member name="T:SweetLib.Storage.Database.IConnectionProvider`1">
-            <summary>
-                Provider for database connection.
-            </summary>
-            <typeparam name="T">Specific type of the database connection. Must inherit <see cref="T:System.Data.Common.DbConnection" />.</typeparam>
-        </member>
-        <member name="M:SweetLib.Storage.Database.IConnectionProvider`1.GetConnection">
-            <summary>
-                Gets an instance of a database connection.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:SweetLib.Storage.Database.IDatabaseObject`1">
             <summary>
                 Object to store in database.
@@ -45,6 +33,17 @@
         <member name="M:SweetLib.Storage.Database.IDatabaseObject`1.TableName">
             <summary>
                 Table name of the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SweetLib.Storage.IConnectionProvider`1">
+            <summary>
+                Provider for database connection.
+            </summary>
+        </member>
+        <member name="M:SweetLib.Storage.IConnectionProvider`1.GetConnection">
+            <summary>
+                Gets an instance of a database connection.
             </summary>
             <returns></returns>
         </member>
